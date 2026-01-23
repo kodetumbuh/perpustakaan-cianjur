@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - Perpustakaan Cianjur</title>
+        <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+    <?= $this->include('layout_dashboard/navbar') ?>
+
+    <div id="layoutSidenav">
+        <?= $this->include('layout_dashboard/menu') ?>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <?= $this->renderSection('content') ?>
+            </main>
+            
+            <?= $this->include('layout_dashboard/footer') ?>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="<?= base_url('js/scripts.js') ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="<?= base_url('assets/demo/chart-area-demo.js') ?>"></script>
+    <script src="<?= base_url('assets/demo/chart-bar-demo.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    <script src="<?= base_url('assets/demo/datatables-simple-demo.js') ?>"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const suggestionBox = document.getElementById('suggestionBox');
+    let activeIndex = -1;
+
+    // Data halaman (Bisa Anda tambah sesuai kebutuhan)
+    const pages = [
+        { name: 'Dashboard', url: 'http://localhost:8080/dashboard' },
+        { name: 'Kategori', url: 'http://localhost:8080/category' },
+        { name: 'Produk', url: 'http://localhost:8080/products' },
+        { name: 'Laporan', url: 'http://localhost:8080/reports' },
+        { name: 'Pengaturan', url: 'http://localhost:8080/settings' }
+    ];
+
+    // Shortcut Ctrl + K
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'k') {
+            e.preventDefault();
+            searchInput.focus();
+        }
+    });
+
+    // Event saat mengetik
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        suggestionBox.innerHTML = '';
+        activeIndex = -1;
+
+        if (query.length > 0) {
+            const filtered = pages.filter(page => page.name.toLowerCase().includes(query));
+            
+            if (filtered.length > 0) {
+                filtered.forEach((page, index) => {
+                    const item = document.createElement('a');
+                    item.href = page.url;
+                    item.className = 'list-group-item list-group-item-action border-1';
+                    item.textContent = page.name;
+                    item.setAttribute('data-index', index);
+                    
+                    item.addEventListener('click', (e) => {
+                        window.location.href = page.url;
+                    });
+
+                    suggestionBox.appendChild(item);
+                });
+                suggestionBox.classList.remove('d-none');
+            } else {
+                suggestionBox.classList.add('d-none');
+            }
+        } else {
+            suggestionBox.classList.add('d-none');
+        }
+    });
+
+    // Navigasi Keyboard
+    searchInput.addEventListener('keydown', function(e) {
+        const items = suggestionBox.querySelectorAll('.list-group-item');
+        
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            activeIndex = (activeIndex + 1) % items.length;
+            updateActiveItem(items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            activeIndex = (activeIndex - 1 + items.length) % items.length;
+            updateActiveItem(items);
+        } else if (e.key === 'Enter') {
+            if (activeIndex > -1) {
+                e.preventDefault();
+                items[activeIndex].click();
+            }
+        } else if (e.key === 'Escape') {
+            suggestionBox.classList.add('d-none');
+            this.blur();
+        }
+    });
+
+    function updateActiveItem(items) {
+        items.forEach((item, index) => {
+            if (index === activeIndex) {
+                item.classList.add('active');
+                item.scrollIntoView({ block: 'nearest' });
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // Tutup suggest jika klik di luar area
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !suggestionBox.contains(e.target)) {
+            suggestionBox.classList.add('d-none');
+        }
+    });
+});
+    </script>
+    </body>
+</html>
