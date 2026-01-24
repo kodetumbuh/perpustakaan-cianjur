@@ -14,7 +14,7 @@ class Peminjaman extends ResourceController
      */
     public function index()
     {
-        //
+        return view('peminjaman_pengembalian/peminjaman');
     }
 
     /**

@@ -14,7 +14,7 @@ class Penerbit extends ResourceController
      */
     public function index()
     {
-        //
+        return view('detail_buku/penerbit');
     }
 
     /**

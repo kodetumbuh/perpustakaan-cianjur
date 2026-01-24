@@ -14,7 +14,7 @@ class RakBuku extends ResourceController
      */
     public function index()
     {
-        //
+        return view('penyimpanan/rak_buku');
     }
 
     /**

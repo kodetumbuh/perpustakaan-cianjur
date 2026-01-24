@@ -14,7 +14,7 @@ class PeminjamanDetail extends ResourceController
      */
     public function index()
     {
-        //
+        return view('peminjaman_pengembalian/peminjaman_detail');
     }
 
     /**

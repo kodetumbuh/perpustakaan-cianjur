@@ -14,7 +14,7 @@ class Anggota extends ResourceController
      */
     public function index()
     {
-        //
+        return view('pengaturan_pengguna/anggota');
     }
 
     /**

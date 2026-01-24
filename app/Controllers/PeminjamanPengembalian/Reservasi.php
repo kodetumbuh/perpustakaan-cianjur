@@ -14,7 +14,7 @@ class Reservasi extends ResourceController
      */
     public function index()
     {
-        //
+        return view('peminjaman_pengembalian/reservasi');
     }
 
     /**

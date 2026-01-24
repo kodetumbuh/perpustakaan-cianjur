@@ -14,7 +14,7 @@ class Pengembalian extends ResourceController
      */
     public function index()
     {
-        //
+        return view('peminjaman_pengembalian/pengembalian');
     }
 
     /**

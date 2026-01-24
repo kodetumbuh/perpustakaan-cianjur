@@ -14,22 +14,22 @@ $routes->group('admin', function ($routes) {
 
     // Detail Buku
     $routes->get('detail-buku/buku', 'DetailBuku\Buku::index');
-    $routes->get('detail-buku/kategori', 'DetailBuku\Dashboard::index');
-    $routes->get('detail-buku/buku/penerbit', 'DetailBuku\Dashboard::index');
-    $routes->get('detail-buku/buku/pengarang', 'DetailBuku\Dashboard::index');
+    $routes->get('detail-buku/kategori', 'DetailBuku\Kategori::index');
+    $routes->get('detail-buku/buku/penerbit', 'DetailBuku\Penerbit::index');
+    $routes->get('detail-buku/buku/pengarang', 'DetailBuku\Pengarang::index');
 
 
     // Peminjaman & Pengembalian
-    $routes->get('peminjaman-pengembalian/peminjaman', 'DetailBuku\Buku::index');
-    $routes->get('peminjaman-pengembalian/peninjaman-detail', 'DetailBuku\Dashboard::index');
-    $routes->get('peminjaman-pengembalian/pengembalian', 'DetailBuku\Dashboard::index');
-    $routes->get('peminjaman-pengembalian/reservasi', 'DetailBuku\Dashboard::index');
+    $routes->get('peminjaman-pengembalian/peminjaman', 'PeminjamanPengembalian\Peminjaman::index');
+    $routes->get('peminjaman-pengembalian/peminjaman-detail', 'PeminjamanPengembalian\PeminjamanDetail::index');
+    $routes->get('peminjaman-pengembalian/pengembalian', 'PeminjamanPengembalian\Pengembalian::index');
+    $routes->get('peminjaman-pengembalian/reservasi', 'PeminjamanPengembalian\Reservasi::index');
 
     // Penyimpanan
-    $routes->get('peyimpanan/rak-buku', 'Penyimpanan\Dashboard::index');
+    $routes->get('peyimpanan/rak-buku', 'Penyimpanan\RakBuku::index');
 
     // Pengaturan Pengguna
-    $routes->get('pengaturan-pengguna/anggota', 'Penyimpanan\Dashboard::index');
-    $routes->get('pengaturan-pengguna/user', 'Penyimpanan\Dashboard::index');
+    $routes->get('pengaturan-pengguna/anggota', 'PengaturanPengguna\Anggota::index');
+    $routes->get('pengaturan-pengguna/user', 'PengaturanPengguna\User::index');
 
 });
