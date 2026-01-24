@@ -6,7 +6,7 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4">Penerbit</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="index.html">Detail Buku</a></li>
+        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Dashboard</a></li>
         <li class="breadcrumb-item active">Penerbit</li>
     </ol>
     <div class="row">

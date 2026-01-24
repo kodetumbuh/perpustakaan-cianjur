@@ -32,18 +32,26 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/demo/datatables-simple-demo.js') ?>"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    const BASE_URL = '<?= base_url() ?>';
+    document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     const suggestionBox = document.getElementById('suggestionBox');
     let activeIndex = -1;
 
-    // Data halaman (Bisa Anda tambah sesuai kebutuhan)
+    // Data halaman
     const pages = [
-        { name: 'Dashboard', url: 'http://localhost:8080/dashboard' },
-        { name: 'Kategori', url: 'http://localhost:8080/category' },
-        { name: 'Produk', url: 'http://localhost:8080/products' },
-        { name: 'Laporan', url: 'http://localhost:8080/reports' },
-        { name: 'Pengaturan', url: 'http://localhost:8080/settings' }
+        { name: 'Dashboard', url: `${BASE_URL}admin/dashboard` },
+        { name: 'Buku', url: `${BASE_URL}admin/detail-buku/buku` },
+        { name: 'Kategori', url: `${BASE_URL}admin/detail-buku/kategori` },
+        { name: 'Penerbit', url: `${BASE_URL}admin/detail-buku/penerbit` },
+        { name: 'Pengarang', url: `${BASE_URL}admin/detail-buku/pengarang` },
+        { name: 'Peminjaman', url: `${BASE_URL}admin/peminjaman-pengembalian/peminjaman` },
+        { name: 'Peminjaman Detail', url: `${BASE_URL}admin/peminjaman-pengembalian/peminjaman-detail` },
+        { name: 'Pengembalian', url: `${BASE_URL}admin/peminjaman-pengembalian/pengembalian` },
+        { name: 'Reservasi', url: `${BASE_URL}admin/peminjaman-pengembalian/reservasi` },
+        { name: 'Rak Buku', url: `${BASE_URL}admin/penyimpanan/rak-buku` },
+        { name: 'Anggota', url: `${BASE_URL}admin/pengaturan-pengguna/anggota` },
+        { name: 'User', url: `${BASE_URL}admin/pengaturan-pengguna/user` },
     ];
 
     // Shortcut Ctrl + K

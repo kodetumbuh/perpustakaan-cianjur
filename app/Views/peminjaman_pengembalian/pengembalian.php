@@ -6,7 +6,7 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4">Pengembalian</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="index.html">Peminjaman Pengembalian</a></li>
+        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Dashboard</a></li>
         <li class="breadcrumb-item active">Pengembalian</li>
     </ol>
     <div class="row">
