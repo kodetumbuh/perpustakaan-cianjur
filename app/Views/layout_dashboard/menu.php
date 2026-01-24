@@ -3,27 +3,27 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Menu Utama</div>
-                <a class="nav-link" href="./">
+                <a class="nav-link" href="<?= base_url('admin/dashboard') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
                 <div class="sb-sidenav-menu-heading">Detail Buku</div>
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?= base_url('admin/detail-buku/buku') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
                     Buku
                 </a>
 
-                <a class="nav-link" href="kategori.html">
+                <a class="nav-link" href="<?= base_url('admin/detail-buku/kategori') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-tag"></i></div>
                     Kategori
                 </a>
 
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('admin/detail-buku/penerbit') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-stamp"></i></div>
                     Penerbit
                 </a>
             
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('admin/detail-buku/pengarang') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-user-pen"></i></div>
                     Pengarang
                 </a>
@@ -32,22 +32,22 @@
 
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Peminjaman & Pengembalian</div>
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="<?= base_url('admin/peminjaman-pengembalian/peminjaman') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></i></div>
                     Peminjaman
                 </a>
 
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('admin/peminjaman-pengembalian/peminjaman-detail') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-circle-info"></i></div>
                     Peminjaman Detail
                 </a>
 
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('admin/peminjaman-pengembalian/pengembalian') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
                     Pengembalian
                 </a>
             
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('admin/peminjaman-pengembalian/reservasi') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar-day"></i></div>
                     Reservasi
                 </a>
@@ -56,7 +56,7 @@
 
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Penyimpanan</div>                            
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('admin/peyimpanan/rak-buku') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-warehouse"></i></div>
                     Rak Buku
                 </a>
@@ -65,11 +65,11 @@
 
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Pengaturan Pengguna</div>                            
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('admin/pengaturan-pengguna/anggota') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                     Anggota
                 </a>
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="<?= base_url('admin/pengaturan-pengguna/user') ?>">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                     User
                 </a>

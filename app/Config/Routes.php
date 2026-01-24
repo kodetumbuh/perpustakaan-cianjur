@@ -15,8 +15,8 @@ $routes->group('admin', function ($routes) {
     // Detail Buku
     $routes->get('detail-buku/buku', 'DetailBuku\Buku::index');
     $routes->get('detail-buku/kategori', 'DetailBuku\Kategori::index');
-    $routes->get('detail-buku/buku/penerbit', 'DetailBuku\Penerbit::index');
-    $routes->get('detail-buku/buku/pengarang', 'DetailBuku\Pengarang::index');
+    $routes->get('detail-buku/penerbit', 'DetailBuku\Penerbit::index');
+    $routes->get('detail-buku/pengarang', 'DetailBuku\Pengarang::index');
 
 
     // Peminjaman & Pengembalian
