@@ -8,11 +8,11 @@
 
     <style>
 
-/* Card Styling */
+        
+
         .testimonial-card {
             border: none;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             background: #fff;
             padding: 30px;
             height: 100%;
@@ -532,14 +532,87 @@
         </div>
     </div>
 
+
     <div class="container">
-        <h1>CTA</h1>
+        <h1>Pricing gratis card disini</h1>
     </div>
 
-    <div class="container-fluid">
-        <h1>footer</h1>
-    </div>
+    <section class="py-5 bg-primary">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+            <div class="col-md-7">
+                <h1 class="text-center fw-bold text-light ">Ayo Menjadi Anggota</h1>
+                <p class="mb-3 mt-3 text-light">
+                Daftarkan diri Anda dan miliki Kartu Anggota Perpustakaan  untuk
+                mengakses ribuan koleksi buku, arsip daerah, serta berbagai layanan
+                perpustakaan secara mudah, cepat, terintegrasi, dan gratis!.
+                </p>
+                <a href="#daftar" class="btn btn-dark btn-md px-4">
+                Gabung Sekarang
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
 
+    <footer class="bg-dark text-light pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold">Perpustakaan Cianjur</h5>
+                    <p>Meningkatkan literasi masyarakat Cianjur melalui akses buku digital yang mudah, cepat, dan terpercaya bagi seluruh lapisan masyarakat.</p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold">Layanan</h5>
+                    <p><a href="#" class="text-light text-decoration-none">Pinjam Buku</a></p>
+                    <p><a href="#" class="text-light text-decoration-none">E-Journal</a></p>
+                    <p><a href="#" class="text-light text-decoration-none">Donasi Buku</a></p>
+                    <p><a href="#" class="text-light text-decoration-none">Keanggotaan</a></p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold">Bantuan</h5>
+                    <p><a href="#" class="text-light text-decoration-none">Akun Saya</a></p>
+                    <p><a href="#" class="text-light text-decoration-none">Kebijakan Privasi</a></p>
+                    <p><a href="#" class="text-light text-decoration-none">Syarat & Ketentuan</a></p>
+                    <p><a href="#" class="text-light text-decoration-none">Kontak Kami</a></p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold">Hubungi Kami</h5>
+                    <p><i class="fas fa-home me-2"></i> Jl. Siti Jenab No. 31, Cianjur</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@perpuscianjur.id</p>
+                    <p><i class="fas fa-phone me-2"></i> +62 263 123456</p>
+                </div>
+
+            </div>
+
+            <hr class="mb-4">
+
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8 text-center text-md-start">
+                    <p>© 2026 Copyright: 
+                        <a href="#" class="text-primary fw-bold text-decoration-none">Perpustakaan Digital Cianjur</a>
+                    </p>
+                </div>
+                <div class="col-md-5 col-lg-4 text-center text-md-end">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light btn-sm" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light btn-sm" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-light btn-sm" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url('js/scripts.js') ?>"></script>
 </body>
