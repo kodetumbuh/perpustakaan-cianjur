@@ -8,6 +8,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+service('auth')->routes($routes);
+
 // routes dashboard admin
 $routes->group('admin', function ($routes) {
     $routes->get('dashboard', 'MenuUtama\Dashboard::index');
