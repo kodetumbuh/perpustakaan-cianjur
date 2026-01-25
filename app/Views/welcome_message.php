@@ -5,158 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing Halo Dokumen</title>
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
-
-    <style>
-
-        
-
-        .testimonial-card {
-            border: none;
-            border-radius: 20px;
-            background: #fff;
-            padding: 30px;
-            height: 100%;
-            margin-bottom: 20px;
-        }
-        
-        .profile-img-top {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 15px;
-        }
-
-        /* Merapikan Slider Container */
-        .slider-wrapper {
-            position: relative;
-            padding: 0 60px; /* Ruang kosong untuk tombol di kiri-kanan */
-        }
-
-        /* Merapikan Tombol Navigasi */
-        .carousel-control-prev, 
-        .carousel-control-next {
-            width: 45px;
-            height: 45px;
-            background-color: #0d6efd;
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 1;
-            /* Memastikan tombol benar-benar simetris di luar alur kartu */
-        }
-
-        .carousel-control-prev { left: 0; }
-        .carousel-control-next { right: 0; }
-
-        /* Mengatur ukuran icon di dalam tombol agar pas di tengah */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Indikator Titik di Bawah (Opsional agar lebih rapi) */
-        .carousel-indicators {
-            bottom: -50px;
-        }
-        .carousel-indicators [data-bs-target] {
-            background-color: #0d6efd;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .vertical-steps {
-        position: relative;
-        padding-left: 20px; /* Ruang untuk garis dan lingkaran */
-        }
-
-        /* Garis Vertikal Utama */
-        .vertical-steps::before {
-        content: "";
-        position: absolute;
-        top: 5px;
-        bottom: 5px;
-        left: 45px; /* Sesuaikan agar tepat di tengah lingkaran */
-        width: 2px;
-        background-color: #dee2e6;
-        z-index: 0;
-        }
-
-        .step-item {
-        display: flex;
-        align-items: flex-start;
-        position: relative;
-        z-index: 1;
-        }
-
-        /* Lingkaran Angka */
-        .step-circle {
-        min-width: 50px;
-        height: 50px;
-        background-color: #0d6efd;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-right: 20px;
-        border: 4px solid white; /* Memberi jarak agar garis tidak menempel */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .step-content {
-        padding-top: 10px;
-        }
-
-        /* Efek Hover (Opsional) */
-        .step-item:hover .step-circle {
-        background-color: #0b5ed7;
-        transform: scale(1.1);
-        transition: all 0.3s ease;
-        }
-
-
-        .hover-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-
-        .hover-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        /* Mobile (default, <768px) */
-        .margin-mobile {
-        margin-top: 10px;
-        }
-
-
-        /* Medium (md, ≥768px) */
-        @media (min-width: 768px) {
-        .margin-medium {
-        margin-top: 15px;
-        }
-        }
-
-
-        /* Optional: hapus margin di lg ke atas */
-        @media (min-width: 992px) {
-        .margin-large {
-        margin: 0;
-        }
-        }
-
-    </style>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?= base_url('css/index.css') ?>">
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="80" tabindex="0">
 
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Perpustakaan Cianjur</a>
 
@@ -167,30 +21,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Fitur</a>
+                <a class="nav-link" href="#fitur">Fitur</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Benefit</a>
+                <a class="nav-link" href="#benefit">Benefit</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Harga</a>
+                <a class="nav-link" href="#registrasi">Registrasi</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Kontak</a>
+                <a class="nav-link" href="#review">Review</a>
                 </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Lainnya
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <li class="nav-item">
+                <a class="nav-link" href="#gratis">Gratis</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#pertanyaan">Pertanyaan</a>
                 </li>
             </ul>
 
@@ -198,7 +47,7 @@
         </div>
     </nav>
 
-    <section>
+    <section id="home">
         <div class="container">
             <div class="row align-items-center">
                 
@@ -223,10 +72,11 @@
         </div>
     </section>
 
+<section id="fitur">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
-                <div class="text-center">
+                <div id="fitur" class="text-center">
                     <h1>Kenapa Perpustakaan Cianjur</h1>
                     <div class="text-secondary fs-5 mt-3">
                     <p>Kami hadir untuk menghubungkan jarak antara pembaca dan ilmu pengetahuan</p>
@@ -235,79 +85,81 @@
             </div>
         </div>
     </div>
+</section>
+
 
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-4 mt-4">
                 <div class="card hover-card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <div class="icon-wrap mx-auto mb-3">
+                            <i class="fa-solid fa-tag fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold card-title text-center mt-3 mb-3">Gratis Umum</h4>
+                        <p class="card-text text-muted text-center">Perpustakaan memiliki koleksi buku yang sangat banyak dalam berbagai genre serta buku-buku dapat di akses dengan sangat mudah dan gratis</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 mt-4">
                 <div class="card hover-card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <div class="icon-wrap mx-auto mb-3">
+                            <i class="fa-solid fa-handshake fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold card-title text-center mt-3 mb-3">Tersedia Untuk Semua</h4>
+                        <p class="card-text text-muted text-center">Perpustakaan kami inklusif yang artinya terbuka untuk semua kalangan masyarakat dewasa, remaja dan anak-anak sehingga terbuka untuk umum serta semuanya</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4 mt-4">
                 <div class="card hover-card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <div class="icon-wrap mx-auto mb-3">
+                            <i class="fa-solid fa-users fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold card-title text-center mt-3 mb-3">Komunitas Lokal</h4>
+                        <p class="card-text text-muted text-center">Komunitas untuk sharing ilmu dan pengetahuan sehingga anda bisa mempunyai jaringan pertemanan atau koneksi yang sangat luas</p>
                     </div>
-                </div>  
+                </div>
             </div>
             <div class="col-12 col-md-4 mt-4">
                 <div class="card hover-card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <div class="icon-wrap mx-auto mb-3">
+                            <i class="fa-solid fa-mug-hot fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold card-title text-center mt-3 mb-3">Tempat Nyaman</h4>
+                        <p class="card-text text-muted text-center">Perpustakaan bisa digunakan untuk sharing ilmu dan pengetahuan sehingga anda bisa mempunyai jaringan pertemanan atau koneksi yang sangat luas</p>
                     </div>
-                </div>  
+                </div>
             </div>
             <div class="col-12 col-md-4 mt-4">
                 <div class="card hover-card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <div class="icon-wrap mx-auto mb-3">
+                            <i class="fa-solid fa-location-dot fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold card-title text-center mt-3 mb-3">Lokasi Strategis</h4>
+                        <p class="card-text text-muted text-center">Kami mempunyai lokasi yang strategi tersedia di 5 kecamatan berbeda untuk mengakses ilmu pengetahuan secara mudah dan dapat diakses oleh masyarakat.</p>
                     </div>
-                </div>  
+                </div>
             </div>
             <div class="col-12 col-md-4 mt-4">
                 <div class="card hover-card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <div class="icon-wrap mx-auto mb-3">
+                            <i class="fa-solid fa-box-archive fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold card-title text-center mt-3 mb-3">Koleksi Buku Langka</h4>
+                        <p class="card-text text-muted text-center">Perpustakaan memiliki simpanan buku langka yang menarik dibaca karena buku-buku tersebut hanya tersedia untuk daerah saja dan tidak diperjual belikan untuk umum</p>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </div>
 
-    <section>
+    <section id="benefit">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-md-12 col-lg-6 margin-mobile margin-medium margin-large">
@@ -373,7 +225,7 @@
         <div class="container">
             <div class="row align-items-center">
                 
-                <div class="col-12 col-md-12 col-lg-6 text-center text-md-start margin-mobile margin-medium margin-large">
+                <div class="col-12 col-md-12 col-lg-6 text-center text-md-start margin-mobile margin-medium margin-large order-2 order-lg-1">
                     <h1 class="fw-bold text-dark mb-3">
                        Layanan Terpadu Pemerintah
                     </h1>
@@ -382,7 +234,7 @@
                     </p>
                 </div>
 
-                <div class="col-12 col-md-12 col-lg-6 margin-mobile margin-medium margin-large">
+                <div class="col-12 col-md-12 col-lg-6 margin-mobile margin-medium margin-large order-1 order-lg-2">
                     <img src="<?= base_url('assets/img/Collab-bro.svg') ?>" alt="Library Management Dashboard">
                 </div>
 
@@ -392,7 +244,7 @@
 
 
     <div class="container">
-    <section class="py-5">
+    <section class="py-5" id="registrasi">
         <div class="container">
             <div class="row justify-content-center">
             <div class="col-md-7">
@@ -443,100 +295,244 @@
     
 
 
-    <div class="container py-5">
-        <h2 class="text-center mb-5 fw-bold">Apa Kata Mereka?</h2>
-
-        <div id="testimonialSlider" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                
-                <div class="carousel-item active">
-                    <div class="row px-lg-5">
-                        <div class="col-md-4">
-                            <div class="card testimonial-card p-4 text-center">
-                                <div class="card-body">
-                                    <img src="https://i.pravatar.cc/150?u=1" class="profile-img-top mx-auto" alt="User">
-                                    <h5 class="fw-bold mb-0">Andi Wijaya</h5>
-                                    <p class="text-primary small mb-3">CEO Startup</p>
-                                    <p class="card-text text-muted">"Layanannya sangat cepat dan responsif. Saya sangat puas!"</p>
+    <section id="review">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 fw-bold">Apa Kata Anggota?</h2>
+            <div id="testimonialSlider" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    
+                    <div class="carousel-item active">
+                        <div class="row px-lg-5">
+                            <div class="col-md-4">
+                                <div class="card testimonial-card p-4 text-center">
+                                    <div class="card-body">
+                                        <img src="https://i.pravatar.cc/150?u=1" class="profile-img-top mx-auto" alt="User">
+                                        <h5 class="fw-bold mb-0">Andi Wijaya</h5>
+                                        <p class="text-primary small mb-3">CEO Startup</p>
+                                        <p class="card-text text-muted">"Layanannya sangat cepat dan responsif. Saya sangat puas!"</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 d-none d-md-block">
-                            <div class="card testimonial-card p-4 text-center">
-                                <div class="card-body">
-                                    <img src="https://i.pravatar.cc/150?u=2" class="profile-img-top mx-auto" alt="User">
-                                    <h5 class="fw-bold mb-0">Siti Aminah</h5>
-                                    <p class="text-primary small mb-3">Freelancer</p>
-                                    <p class="card-text text-muted">"Fitur-fiturnya sangat mudah digunakan bahkan untuk pemula."</p>
+                            <div class="col-md-4 d-none d-md-block">
+                                <div class="card testimonial-card p-4 text-center">
+                                    <div class="card-body">
+                                        <img src="https://i.pravatar.cc/150?u=2" class="profile-img-top mx-auto" alt="User">
+                                        <h5 class="fw-bold mb-0">Siti Aminah</h5>
+                                        <p class="text-primary small mb-3">Freelancer</p>
+                                        <p class="card-text text-muted">"Fitur-fiturnya sangat mudah digunakan bahkan untuk pemula."</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 d-none d-md-block">
-                            <div class="card testimonial-card p-4 text-center">
-                                <div class="card-body">
-                                    <img src="https://i.pravatar.cc/150?u=3" class="profile-img-top mx-auto" alt="User">
-                                    <h5 class="fw-bold mb-0">Budi Santoso</h5>
-                                    <p class="text-primary small mb-3">Entrepreneur</p>
-                                    <p class="card-text text-muted">"Harga sangat terjangkau dengan kualitas premium. Mantap!"</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <div class="row px-lg-5">
-                        <div class="col-md-4">
-                            <div class="card testimonial-card p-4 text-center">
-                                <div class="card-body">
-                                    <img src="https://i.pravatar.cc/150?u=4" class="profile-img-top mx-auto" alt="User">
-                                    <h5 class="fw-bold mb-0">Dewi Lestari</h5>
-                                    <p class="text-primary small mb-3">Marketing</p>
-                                    <p class="card-text text-muted">"Desainnya modern dan sangat membantu branding kami."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-none d-md-block">
-                            <div class="card testimonial-card p-4 text-center">
-                                <div class="card-body">
-                                    <img src="https://i.pravatar.cc/150?u=5" class="profile-img-top mx-auto" alt="User">
-                                    <h5 class="fw-bold mb-0">Rizky Pratama</h5>
-                                    <p class="text-primary small mb-3">Engineer</p>
-                                    <p class="card-text text-muted">"Support team luar biasa. Sangat merekomendasikan layanan ini."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-none d-md-block">
-                            <div class="card testimonial-card p-4 text-center">
-                                <div class="card-body">
-                                    <img src="https://i.pravatar.cc/150?u=6" class="profile-img-top mx-auto" alt="User">
-                                    <h5 class="fw-bold mb-0">Maya Indah</h5>
-                                    <p class="text-primary small mb-3">Owner</p>
-                                    <p class="card-text text-muted">"Hasilnya sangat memuaskan dan selesai tepat waktu."</p>
+                            <div class="col-md-4 d-none d-md-block">
+                                <div class="card testimonial-card p-4 text-center">
+                                    <div class="card-body">
+                                        <img src="https://i.pravatar.cc/150?u=3" class="profile-img-top mx-auto" alt="User">
+                                        <h5 class="fw-bold mb-0">Budi Santoso</h5>
+                                        <p class="text-primary small mb-3">Entrepreneur</p>
+                                        <p class="card-text text-muted">"Harga sangat terjangkau dengan kualitas premium. Mantap!"</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="carousel-item">
+                        <div class="row px-lg-5">
+                            <div class="col-md-4">
+                                <div class="card testimonial-card p-4 text-center">
+                                    <div class="card-body">
+                                        <img src="https://i.pravatar.cc/150?u=4" class="profile-img-top mx-auto" alt="User">
+                                        <h5 class="fw-bold mb-0">Dewi Lestari</h5>
+                                        <p class="text-primary small mb-3">Marketing</p>
+                                        <p class="card-text text-muted">"Desainnya modern dan sangat membantu branding kami."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-none d-md-block">
+                                <div class="card testimonial-card p-4 text-center">
+                                    <div class="card-body">
+                                        <img src="https://i.pravatar.cc/150?u=5" class="profile-img-top mx-auto" alt="User">
+                                        <h5 class="fw-bold mb-0">Rizky Pratama</h5>
+                                        <p class="text-primary small mb-3">Engineer</p>
+                                        <p class="card-text text-muted">"Support team luar biasa. Sangat merekomendasikan layanan ini."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-none d-md-block">
+                                <div class="card testimonial-card p-4 text-center">
+                                    <div class="card-body">
+                                        <img src="https://i.pravatar.cc/150?u=6" class="profile-img-top mx-auto" alt="User">
+                                        <h5 class="fw-bold mb-0">Maya Indah</h5>
+                                        <p class="text-primary small mb-3">Owner</p>
+                                        <p class="card-text text-muted">"Hasilnya sangat memuaskan dan selesai tepat waktu."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialSlider" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialSlider" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
+        </div>
+    </section>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialSlider" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#testimonialSlider" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+
+    <section class="py-5 bg-light" id="gratis">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Layanan Keanggotaan</h2>
+            <p class="text-muted">Pilih paket akses yang sesuai dengan kebutuhan literasi Anda</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-4">
+                <div class="card h-100 shadow border-primary" style="transform: scale(1.05);">
+                    <div class="card-body p-4">
+                        <span class="badge bg-primary float-end text-uppercase">Populer</span>
+                        <h5 class="text-muted text-uppercase mb-3">Anggota</h5>
+                        <h2 class="fw-bold mb-4">GRATIS <small class="text-muted fs-6">/tahun</small></h2>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Baca buku di tempat</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Akses Wi-Fi kecepatan tinggi</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> <strong>Pinjam hingga 3 buku</strong></li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Akses 600+ buku</li>
+                            <li class="mb-3"><i class="bi bi-x-circle me-2"></i> Tersedia komputer untuk digunakan</li>
+                            <li class="mb-3"><i class="bi bi-x-circle me-2"></i> Ruangan nyaman</li>
+                            <li class="mb-3"><i class="bi bi-x-circle me-2"></i> Layanan cetak print</li>
+                        </ul>
+                        <button class="btn btn-primary w-100 shadow">Daftar Anggota</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
+</section>
+
+   
 
 
-    <div class="container">
-        <h1>Pricing gratis card disini</h1>
-    </div>
+    <section id="pertanyaan">
+        <div class="d-flex justify-content-center">
+            <div class="col-12 col-md-6">
+                
+            <section id="faq" class="py-5">
+                    <div class="container">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">Pertanyaan yang Sering Diajukan</h2>
+                            <p class="text-muted">
+                                Informasi seputar peminjaman buku di Perpustakaan Cianjur
+                            </p>
+                        </div>
 
+                        <div class="accordion" id="faqAccordion">
+
+                            <!-- FAQ 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseOne" 
+                                        aria-expanded="true" 
+                                        aria-controls="collapseOne">
+                                        Bagaimana cara meminjam buku di Perpustakaan Cianjur?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" 
+                                    aria-labelledby="headingOne" 
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Pemustaka yang telah terdaftar sebagai anggota dapat meminjam buku 
+                                        menggunakan kartu anggota digital atau fisik melalui layanan 
+                                        peminjaman di perpustakaan maupun aplikasi perpustakaan.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseTwo" 
+                                        aria-expanded="false" 
+                                        aria-controls="collapseTwo">
+                                        Berapa lama durasi peminjaman buku?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" 
+                                    aria-labelledby="headingTwo" 
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Durasi peminjaman buku adalah <strong>7 hari</strong> dan dapat 
+                                        diperpanjang sesuai ketentuan, selama buku tidak sedang dipesan 
+                                        oleh pemustaka lain.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseThree" 
+                                        aria-expanded="false" 
+                                        aria-controls="collapseThree">
+                                        Berapa jumlah maksimal buku yang dapat dipinjam?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" 
+                                    aria-labelledby="headingThree" 
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Setiap anggota Perpustakaan Cianjur dapat meminjam maksimal 
+                                        <strong>3 buku</strong> dalam satu periode peminjaman.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 4 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#collapseFour" 
+                                        aria-expanded="false" 
+                                        aria-controls="collapseFour">
+                                        Apakah ada denda jika terlambat mengembalikan buku?
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" 
+                                    aria-labelledby="headingFour" 
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Ya, keterlambatan pengembalian buku akan dikenakan denda sesuai 
+                                        peraturan yang berlaku di Perpustakaan Cianjur.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+            
+        </div>
+    </section>
+
+
+
+    
     <section class="py-5 bg-primary">
         <div class="container">
             <div class="row justify-content-center text-center">
