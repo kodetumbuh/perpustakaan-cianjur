@@ -5,6 +5,7 @@ namespace Config;
 use CodeIgniter\Events\Events;
 use CodeIgniter\Exceptions\FrameworkException;
 use CodeIgniter\HotReloader\HotReloader;
+use CodeIgniter\Shield\Entities\User;
 
 /*
  * --------------------------------------------------------------------
@@ -52,4 +53,13 @@ Events::on('pre_system', static function (): void {
             });
         }
     }
+});
+
+Events::on('register', function (User $user) {
+
+
+// JADIKAN ADMIN
+$user->addGroup('admin');
+
+
 });
