@@ -4,11 +4,40 @@
 
 <main>
 <div class="container-fluid px-4">
-    <h1 class="mt-4">User</h1>
+    <h1 class="mt-4">Anggota Dashboard</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Dashboard</a></li>
-        <li class="breadcrumb-item active">User</li>
+        <li class="breadcrumb-item active">Dashboard</li>
     </ol>
+   
+    <div class="card mb-4 shadow-sm">
+  <div class="card-header bg-light fw-semibold">
+    <i class="fa fa-book me-2"></i> Informasi Buku
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Judul Buku</label>
+        <input type="text" class="form-control">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Penulis</label>
+        <input type="text" class="form-control">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label">ISBN</label>
+        <input type="text" class="form-control">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Tahun Terbit</label>
+        <input type="number" class="form-control">
+      </div>
+    </div>
+  </div>
+</div>
 
     <div class="card mb-4">
         <div class="card-header">

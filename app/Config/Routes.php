@@ -11,7 +11,7 @@ $routes->get('/', 'Home::index');
 service('auth')->routes($routes);
 
 // routes dashboard admin
-$routes->group('admin', function ($routes) {
+$routes->group('admin', ['filter' => 'group:admin'], function ($routes) {
     $routes->get('dashboard', 'MenuUtama\Dashboard::index');
 
     // Detail Buku
@@ -35,3 +35,9 @@ $routes->group('admin', function ($routes) {
     $routes->get('pengaturan-pengguna/user', 'PengaturanPengguna\User::index');
 
 });
+
+// routes dashboard admin
+$routes->group('anggota', function ($routes) {
+    $routes->get('dashboard', 'MenuUtama\AnggotaDashboard::index');
+});
+

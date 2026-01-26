@@ -13,6 +13,11 @@ class CreateAnggota extends Migration
                 'type' => 'INT',
                 'auto_increment' => true,
             ],
+            'user_id' => [
+                'type' => 'INT',
+                'unsigned' => true,
+                'null' => false,
+            ],
             'no_anggota' => [
                 'type' => 'VARCHAR',
                 'constraint' => 20,
@@ -74,6 +79,15 @@ class CreateAnggota extends Migration
         $this->forge->addKey('id_anggota', true);
         $this->forge->addKey('nama');
         $this->forge->addKey('status');
+
+        // FOREIGN KEY
+        $this->forge->addForeignKey(
+        'user_id',
+        'users',
+        'id',
+        'CASCADE', // on delete
+        'CASCADE' // on update
+        );
 
         $this->forge->createTable('anggota');
     }
