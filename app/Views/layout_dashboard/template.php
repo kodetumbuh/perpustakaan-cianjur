@@ -50,14 +50,7 @@
         processing: true,
         serverSide: true,
         ajax: '<?= base_url('admin/detail-buku/kategori/json') ?>',
-        stateSave: true,
-        success: function(data) {
-        // 'table' adalah variabel inisialisasi DataTable Anda
-        // false di sini memastikan posisi halaman tidak berubah
-        table.ajax.reload(null, false); 
-        
-        alert("Data berhasil dihapus");
-    },
+        stateSave: true,    
 
         // ⬇️ penting untuk Buttons
         dom: 'lBfrtip',
