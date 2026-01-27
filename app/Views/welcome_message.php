@@ -53,7 +53,7 @@
                 
                 <div class="col-12 col-md-12 col-lg-6 text-center text-md-start margin-mobile margin-medium margin-large">
                     <h1 class="display-4 fw-bold text-dark mb-3">
-                       Manajemen Perpustakaan yang Efisien dan Modern
+                       Manajemen Perpustakaan yang Efisien dan Modern Testing dari lokal development
                     </h1>
                     <p class="fs-5 text-secondary mb-4">
                     Perpustakaan Cianjur mempermudah pengelolaan katalog buku, data anggota, dan proses peminjaman. Dikembangkan untuk  perpustakaan umum yang mengutamakan efisiensi khusus daerah
