@@ -9,7 +9,12 @@
         <title>Dashboard - Perpustakaan Cianjur</title>
         <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-</head>
+        <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+        
+    
+    </head>
 <body class="sb-nav-fixed">
     <?= $this->include('layout_dashboard/navbar') ?>
 
@@ -29,8 +34,82 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/demo/chart-area-demo.js') ?>"></script>
     <script src="<?= base_url('assets/demo/chart-bar-demo.js') ?>"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script src="<?= base_url('assets/demo/datatables-simple-demo.js') ?>"></script>
+
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+
+    <script>
+       $(document).ready(function() {
+    $('#table-users').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '<?= base_url('admin/detail-buku/kategori/json') ?>',
+        stateSave: true,
+        success: function(data) {
+        // 'table' adalah variabel inisialisasi DataTable Anda
+        // false di sini memastikan posisi halaman tidak berubah
+        table.ajax.reload(null, false); 
+        
+        alert("Data berhasil dihapus");
+    },
+
+        // ⬇️ penting untuk Buttons
+        dom: 'lBfrtip',
+
+
+
+        buttons: [
+            {
+                text: ' <i class="fas fa-plus"></i> Tambahkan Data',
+                className: 'btn btn-success mt-2 mb-3',
+                attr: {
+                    class: 'btn btn-success btn-sm mt-2 mb-3' // Memaksa class masuk ke atribut HTML
+                },
+                action: function (e, dt, node, config) {
+                    window.location.href = '<?= base_url('admin/detail-buku/kategori/create') ?>';
+                }
+            }
+        ],
+
+
+        columns: [
+            { data: 'kode_kategori' },
+            { data: 'nama_kategori' },
+            { data: 'deskripsi' },
+            {
+                data: "id_kategori",
+                orderable: false,
+                searchable: false,
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        var urlEdit  = '<?= base_url('admin/detail-buku/kategori/edit') ?>/' + data;
+                        var urlHapus = '<?= base_url('admin/detail-buku/kategori/delete') ?>/' + data;
+
+                        return `
+                            <div class="d-flex gap-2">
+                                <a href="${urlEdit}" class="btn btn-primary btn-sm" title="Edit">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <a href="${urlHapus}" class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Yakin hapus?')" title="Hapus">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                        `;
+                    }
+                    return data;
+                }
+            }
+        ]
+    });
+});
+    </script>
     <script>
     const BASE_URL = '<?= base_url() ?>';
     document.addEventListener('DOMContentLoaded', function() {

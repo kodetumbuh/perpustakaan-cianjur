@@ -59,7 +59,7 @@ Events::on('register', function (User $user) {
 
 
 // JADIKAN ADMIN
-$user->addGroup('admin');
+$user->addGroup('user');
 
 
 });

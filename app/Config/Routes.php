@@ -11,12 +11,25 @@ $routes->get('/', 'Home::index');
 service('auth')->routes($routes);
 
 // routes dashboard admin
-$routes->group('admin', ['filter' => 'group:admin'], function ($routes) {
+$routes->group('admin', function ($routes) {
     $routes->get('dashboard', 'MenuUtama\Dashboard::index');
 
     // Detail Buku
     $routes->get('detail-buku/buku', 'DetailBuku\Buku::index');
     $routes->get('detail-buku/kategori', 'DetailBuku\Kategori::index');
+
+    $routes->get('detail-buku/kategori/json', 'DetailBuku\Kategori::json');
+
+    $routes->get('detail-buku/kategori/create', 'DetailBuku\Kategori::create');
+    $routes->post('detail-buku/kategori/post', 'DetailBuku\Kategori::store');
+    $routes->get('detail-buku/kategori/delete/(:num)', 'DetailBuku\Kategori::delete/$1');
+
+
+    $routes->get('detail-buku/kategori/edit/(:num)', 'DetailBuku\Kategori::edit/$1');
+    $routes->post('detail-buku/kategori/update/(:num)', 'DetailBuku\Kategori::update/$1');
+
+
+
     $routes->get('detail-buku/penerbit', 'DetailBuku\Penerbit::index');
     $routes->get('detail-buku/pengarang', 'DetailBuku\Pengarang::index');
 

@@ -4,6 +4,7 @@ namespace App\Controllers\DetailBuku;
 
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
+use \Hermawan\DataTables\DataTable;
 
 class Kategori extends ResourceController
 {
@@ -15,6 +16,20 @@ class Kategori extends ResourceController
     public function index()
     {
         return view('detail_buku/kategori');
+    }
+
+
+    public function json()
+    {
+        $db = db_connect();
+        
+        // 1. Pilih tabel dan kolom yang ingin ditampilkan
+        $builder = $db->table('kategori')
+                      ->select('id_kategori, kode_kategori, nama_kategori, deskripsi');
+
+
+        return DataTable::of($builder)
+            ->toJson(true);
     }
 
     /**
@@ -46,7 +61,23 @@ class Kategori extends ResourceController
      */
     public function create()
     {
-        //
+        return view("detail_buku/kategori_create");
+    }
+
+    public function store()
+    {
+        $kategoriModel = new \App\Models\KategoriModel();
+
+        $data = [
+            'kode_kategori' => $this->request->getPost('kode_kategori'),
+            'nama_kategori' => $this->request->getPost('nama_kategori'),
+            'deskripsi'     => $this->request->getPost('deskripsi'),
+        ];
+
+        $kategoriModel->insert($data);
+
+        return redirect()->to('admin/detail-buku/kategori')
+            ->with('success', 'Kategori berhasil disimpan');
     }
 
     /**
@@ -56,9 +87,19 @@ class Kategori extends ResourceController
      *
      * @return ResponseInterface
      */
-    public function edit($id = null)
+    public function edit($id_kategori = null)
     {
-        //
+        $model = new \App\Models\KategoriModel();
+
+        $kategori = $model->find($id_kategori);
+
+        if (! $kategori) {
+            return redirect()->back()->with('error', 'Data kategori tidak ditemukan');
+        }
+
+        return view('detail_buku/kategori_edit', [
+            'kategori' => $kategori
+        ]);
     }
 
     /**
@@ -68,9 +109,22 @@ class Kategori extends ResourceController
      *
      * @return ResponseInterface
      */
-    public function update($id = null)
+    public function update($id_kategori = null)
     {
-        //
+        $model = new \App\Models\KategoriModel();
+
+        if (! $model->find($id_kategori)) {
+            return redirect()->back()->with('error', 'Data kategori tidak ditemukan');
+        }
+
+        $model->update($id_kategori, [
+            'kode_kategori' => $this->request->getPost('kode_kategori'),
+            'nama_kategori' => $this->request->getPost('nama_kategori'),
+            'deskripsi'     => $this->request->getPost('deskripsi'),
+        ]);
+
+        return redirect()->to('admin/detail-buku/kategori')
+            ->with('success', 'Kategori berhasil diperbarui');
     }
 
     /**
@@ -80,8 +134,14 @@ class Kategori extends ResourceController
      *
      * @return ResponseInterface
      */
-    public function delete($id = null)
+    public function delete($id_kategori = null)
     {
-        //
+        $kategoriModel = new \App\Models\KategoriModel();
+
+
+        $kategoriModel->delete($id_kategori);
+
+
+        return redirect()->back()->with('success', 'Kategori berhasil dihapus');
     }
 }
