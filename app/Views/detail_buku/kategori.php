@@ -87,8 +87,8 @@ Dashboard - Perpustakaan Cianjur
                                     <a href="${urlEdit}" class="btn btn-primary btn-sm" title="Edit">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
-                                    <a href="${urlHapus}" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Yakin hapus?')" title="Hapus">
+                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-delete"
+                                       data-id="${data}" title="Hapus">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </div>
@@ -98,6 +98,38 @@ Dashboard - Perpustakaan Cianjur
                     }
                 }
             ]
+        });
+
+        // Event Delegation for delete button
+        $(document).on('click', '.btn-delete', function() {
+            var id = $(this).data('id');
+            var urlHapus = '<?= base_url('admin/detail-buku/kategori/delete') ?>/' + id;
+
+            if (confirm('Apakah anda yakin ingin menghapus data ini?')) {
+                // Save scroll position
+                var scrollPos = $(window).scrollTop();
+
+                $.ajax({
+                    url: urlHapus,
+                    type: 'GET', // Or DELETE if your controller handles it
+                    dataType: 'JSON',
+                    success: function(response) {
+                        if (response.status) {
+                            alert(response.message);
+                            // Reload DataTable without resetting pagination (null, false)
+                            $('#table-users').DataTable().ajax.reload(function(){
+                                $(window).scrollTop(scrollPos);
+                            }, false);
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                         // Fallback in case controller doesn't return JSON or fails
+                         alert('Gagal menghapus data atau terjadi kesalahan server');
+                    }
+                });
+            }
         });
     });
     </script>

@@ -138,9 +138,21 @@ class Kategori extends ResourceController
     {
         $kategoriModel = new \App\Models\KategoriModel();
 
+        if ($this->request->isAJAX()) {
+            if ($kategoriModel->delete($id_kategori)) {
+                return $this->response->setJSON([
+                    'status' => true,
+                    'message' => 'Kategori berhasil dihapus'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'status' => false,
+                    'message' => 'Gagal menghapus kategori'
+                ]);
+            }
+        }
 
         $kategoriModel->delete($id_kategori);
-
 
         return redirect()->back()->with('success', 'Kategori berhasil dihapus');
     }
