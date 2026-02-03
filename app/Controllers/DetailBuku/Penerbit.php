@@ -139,8 +139,26 @@ class Penerbit extends ResourceController
      *
      * @return ResponseInterface
      */
-    public function delete($id = null)
+    public function delete($id_penerbit = null)
     {
-        //
+        $penerbitModel = new \App\Models\PenerbitModel();
+
+        if ($this->request->isAJAX()) {
+            if ($penerbitModel->delete($id_penerbit)) {
+                return $this->response->setJSON([
+                    'status' => true,
+                    'message' => 'Penerbit berhasil dihapus'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'status' => false,
+                    'message' => 'Gagal menghapus Penerbit'
+                ]);
+            }
+        }
+
+        $penerbitModel->delete($id_penerbit);
+
+        return redirect()->back()->with('success', 'Penerbit berhasil dihapus');
     }
 }

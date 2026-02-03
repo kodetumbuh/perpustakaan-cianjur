@@ -104,7 +104,7 @@ Dashboard - Perpustakaan Cianjur
         // Event Delegation for delete button
         $(document).on('click', '.btn-delete', function() {
             var id = $(this).data('id');
-            var urlHapus = '<?= base_url('admin/detail-buku/kategori/delete') ?>/' + id;
+            var urlHapus = '<?= base_url('admin/detail-buku/penerbit/delete') ?>/' + id;
 
             if (confirm('Apakah anda yakin ingin menghapus data ini?')) {
                 // Save scroll position
