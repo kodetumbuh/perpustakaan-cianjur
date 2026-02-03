@@ -29,7 +29,7 @@ $routes->group('admin', function ($routes) {
     $routes->post('detail-buku/kategori/update/(:num)', 'DetailBuku\Kategori::update/$1');
 
 
-// route penerbit
+    // route penerbit
     $routes->get('detail-buku/penerbit', 'DetailBuku\Penerbit::index');
     $routes->get('detail-buku/penerbit/json', 'DetailBuku\Penerbit::json');
     $routes->get('detail-buku/penerbit/create', 'DetailBuku\Penerbit::create');
@@ -39,8 +39,14 @@ $routes->group('admin', function ($routes) {
     $routes->post('detail-buku/penerbit/update/(:num)', 'DetailBuku\Penerbit::update/$1');
 
 
-
+    // route pengarang
     $routes->get('detail-buku/pengarang', 'DetailBuku\Pengarang::index');
+    $routes->get('detail-buku/pengarang/json', 'DetailBuku\Pengarang::json');
+    $routes->get('detail-buku/pengarang/create', 'DetailBuku\Pengarang::create');
+    $routes->post('detail-buku/pengarang/store', 'DetailBuku\Pengarang::store');
+    $routes->get('detail-buku/pengarang/delete/(:num)', 'DetailBuku\Pengarang::delete/$1');
+    $routes->get('detail-buku/pengarang/edit/(:num)', 'DetailBuku\Pengarang::edit/$1');
+    $routes->post('detail-buku/pengarang/update/(:num)', 'DetailBuku\Pengarang::update/$1');
 
 
     // Peminjaman & Pengembalian
