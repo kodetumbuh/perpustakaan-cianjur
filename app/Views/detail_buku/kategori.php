@@ -53,8 +53,6 @@ Dashboard - Perpustakaan Cianjur
             // ⬇️ penting untuk Buttons
             dom: 'lBfrtip',
 
-
-
             buttons: [
                 {
                     text: ' <i class="fas fa-plus"></i> Tambahkan Data',
@@ -67,7 +65,6 @@ Dashboard - Perpustakaan Cianjur
                     }
                 }
             ],
-
 
             columns: [
                 { data: 'kode_kategori' },
