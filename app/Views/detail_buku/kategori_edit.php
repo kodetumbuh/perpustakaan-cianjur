@@ -4,7 +4,7 @@
 <main>
 <div class="container-fluid px-4">
 
-<div class="card">
+<div class="card mt-4">
     <div class="card-header fw-bold">
         Form Edit Kategori
     </div>

@@ -11,7 +11,7 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
         
     
     </head>
@@ -46,7 +46,7 @@
 
     <script>
        $(document).ready(function() {
-    $('#table-users').DataTable({
+       $('#table-users').DataTable({
         processing: true,
         serverSide: true,
         ajax: '<?= base_url('admin/detail-buku/kategori/json') ?>',
