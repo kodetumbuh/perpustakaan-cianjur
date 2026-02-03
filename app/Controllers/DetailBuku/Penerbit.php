@@ -4,6 +4,7 @@ namespace App\Controllers\DetailBuku;
 
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
+use \Hermawan\DataTables\DataTable;
 
 class Penerbit extends ResourceController
 {
@@ -15,6 +16,20 @@ class Penerbit extends ResourceController
     public function index()
     {
         return view('detail_buku/penerbit');
+    }
+
+
+    public function json()
+    {
+        $db = db_connect();
+        
+        // 1. Pilih tabel dan kolom yang ingin ditampilkan
+        $builder = $db->table('penerbit')
+                      ->select('id_penerbit, nama_penerbit, alamat, kota, no_telepon, email');
+
+
+        return DataTable::of($builder)
+            ->toJson(true);
     }
 
     /**
@@ -46,7 +61,25 @@ class Penerbit extends ResourceController
      */
     public function create()
     {
-        //
+        return view("detail_buku/penerbit_create");
+    }
+
+    public function store()
+    {
+        $penerbitModel = new \App\Models\PenerbitModel();
+
+        $data = [
+            'nama_penerbit' => $this->request->getPost('nama_penerbit'),
+            'alamat' => $this->request->getPost('alamat'),
+            'kota' => $this->request->getPost('kota'),
+            'no_telepon' => $this->request->getPost('no_telepon'),
+            'email'     => $this->request->getPost('email'),
+        ];
+
+        $penerbitModel->insert($data);
+
+        return redirect()->to('admin/detail-buku/penerbit')
+            ->with('success', 'Penerbit berhasil disimpan');
     }
 
     /**
@@ -56,9 +89,19 @@ class Penerbit extends ResourceController
      *
      * @return ResponseInterface
      */
-    public function edit($id = null)
+    public function edit($id_penerbit = null)
     {
-        //
+        $model = new \App\Models\PenerbitModel();
+
+        $penerbit = $model->find($id_penerbit);
+
+        if (! $penerbit) {
+            return redirect()->back()->with('error', 'Data penerbit tidak ditemukan');
+        }
+
+        return view('detail_buku/penerbit_edit', [
+            'penerbit' => $penerbit
+        ]);
     }
 
     /**
@@ -68,10 +111,26 @@ class Penerbit extends ResourceController
      *
      * @return ResponseInterface
      */
-    public function update($id = null)
+    public function update($id_penerbit = null)
     {
-        //
+        $model = new \App\Models\PenerbitModel();
+
+        if (! $model->find($id_penerbit)) {
+            return redirect()->back()->with('error', 'Data Penerbit tidak ditemukan');
+        }
+
+        $model->update($id_penerbit, [
+            'nama_penerbit' => $this->request->getPost('nama_penerbit'),
+            'alamat' => $this->request->getPost('alamat'),
+            'kota' => $this->request->getPost('kota'),
+            'no_telepon' => $this->request->getPost('no_telepon'),
+            'email'     => $this->request->getPost('email'),
+        ]);
+
+        return redirect()->to('admin/detail-buku/penerbit')
+            ->with('success', 'Kategori berhasil diperbarui');
     }
+
 
     /**
      * Delete the designated resource object from the model.

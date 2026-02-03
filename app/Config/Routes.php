@@ -29,8 +29,17 @@ $routes->group('admin', function ($routes) {
     $routes->post('detail-buku/kategori/update/(:num)', 'DetailBuku\Kategori::update/$1');
 
 
-
+// route penerbit
     $routes->get('detail-buku/penerbit', 'DetailBuku\Penerbit::index');
+    $routes->get('detail-buku/penerbit/json', 'DetailBuku\Penerbit::json');
+    $routes->get('detail-buku/penerbit/create', 'DetailBuku\Penerbit::create');
+    $routes->post('detail-buku/penerbit/store', 'DetailBuku\Penerbit::store');
+    $routes->get('detail-buku/penerbit/delete/(:num)', 'DetailBuku\Penerbit::delete/$1');
+    $routes->get('detail-buku/penerbit/edit/(:num)', 'DetailBuku\Penerbit::edit/$1');
+    $routes->post('detail-buku/penerbit/update/(:num)', 'DetailBuku\Penerbit::update/$1');
+
+
+
     $routes->get('detail-buku/pengarang', 'DetailBuku\Pengarang::index');
 
 
