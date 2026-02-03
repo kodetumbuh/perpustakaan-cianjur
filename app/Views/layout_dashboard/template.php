@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - Perpustakaan Cianjur</title>
+        <title><?= $this->renderSection('title') ?></title>
         <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -43,66 +43,7 @@
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 
-
-    <script>
-       $(document).ready(function() {
-       $('#table-users').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: '<?= base_url('admin/detail-buku/kategori/json') ?>',
-        stateSave: true,    
-
-        // ⬇️ penting untuk Buttons
-        dom: 'lBfrtip',
-
-
-
-        buttons: [
-            {
-                text: ' <i class="fas fa-plus"></i> Tambahkan Data',
-                className: 'btn btn-success mt-2 mb-3',
-                attr: {
-                    class: 'btn btn-success btn-sm mt-2 mb-3' // Memaksa class masuk ke atribut HTML
-                },
-                action: function (e, dt, node, config) {
-                    window.location.href = '<?= base_url('admin/detail-buku/kategori/create') ?>';
-                }
-            }
-        ],
-
-
-        columns: [
-            { data: 'kode_kategori' },
-            { data: 'nama_kategori' },
-            { data: 'deskripsi' },
-            {
-                data: "id_kategori",
-                orderable: false,
-                searchable: false,
-                render: function (data, type, row) {
-                    if (type === 'display') {
-                        var urlEdit  = '<?= base_url('admin/detail-buku/kategori/edit') ?>/' + data;
-                        var urlHapus = '<?= base_url('admin/detail-buku/kategori/delete') ?>/' + data;
-
-                        return `
-                            <div class="d-flex gap-2">
-                                <a href="${urlEdit}" class="btn btn-primary btn-sm" title="Edit">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </a>
-                                <a href="${urlHapus}" class="btn btn-danger btn-sm"
-                                   onclick="return confirm('Yakin hapus?')" title="Hapus">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </div>
-                        `;
-                    }
-                    return data;
-                }
-            }
-        ]
-    });
-});
-    </script>
+    <?= $this->renderSection('script') ?>
     <script>
     const BASE_URL = '<?= base_url() ?>';
     document.addEventListener('DOMContentLoaded', function() {

@@ -32,6 +32,16 @@
         </tbody>
     </table>
 
+
+
+<?= $this->endSection() ?>
+
+<?= $this->section('title') ?>
+Dashboard - Perpustakaan Cianjur
+<?= $this->endSection() ?>
+
+
+<?= $this->section('script') ?>
     <script>
         $(document).ready(function() {
         $('#table-users').DataTable({
@@ -92,4 +102,4 @@
     });
     </script>
 
-<?= $this->endSection();
+<?= $this->endSection() ?>
