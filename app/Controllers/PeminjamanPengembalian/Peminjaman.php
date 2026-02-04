@@ -4,6 +4,7 @@ namespace App\Controllers\PeminjamanPengembalian;
 
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
+use \Hermawan\DataTables\DataTable;
 
 class Peminjaman extends ResourceController
 {
@@ -16,6 +17,21 @@ class Peminjaman extends ResourceController
     {
         return view('peminjaman_pengembalian/peminjaman');
     }
+
+    
+    public function json()
+    {
+        $db = db_connect();
+        
+        // 1. Pilih tabel dan kolom yang ingin ditampilkan
+        $builder = $db->table('peminjaman')
+                      ->select('id_peminjaman, no_peminjaman, id_anggota, id_user, nama_peminjam, tgl_peminjaman, tgl_kembali_rencana , tgl_kembali_aktual, denda, jumlah_buku_pinjam, status');
+
+
+        return DataTable::of($builder)
+            ->toJson(true);
+    }
+
 
     /**
      * Return the properties of a resource object.

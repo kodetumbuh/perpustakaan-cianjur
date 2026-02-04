@@ -51,6 +51,9 @@ $routes->group('admin', function ($routes) {
 
     // Peminjaman & Pengembalian
     $routes->get('peminjaman-pengembalian/peminjaman', 'PeminjamanPengembalian\Peminjaman::index');
+    $routes->get('peminjaman-pengembalian/peminjaman/json', 'PeminjamanPengembalian\Peminjaman::json');
+
+    
     $routes->get('peminjaman-pengembalian/peminjaman-detail', 'PeminjamanPengembalian\PeminjamanDetail::index');
     $routes->get('peminjaman-pengembalian/pengembalian', 'PeminjamanPengembalian\Pengembalian::index');
     $routes->get('peminjaman-pengembalian/reservasi', 'PeminjamanPengembalian\Reservasi::index');
