@@ -20,6 +20,34 @@ class Buku extends ResourceController
 
 
     
+    public function json()
+    {
+        $db = db_connect();
+    
+        // Inisialisasi builder pada tabel utama 'buku'
+        $builder = $db->table('buku')
+        ->select('
+            buku.id_buku, 
+            buku.judul, 
+            buku.isbn, 
+            pengarang.nama_pengarang, 
+            penerbit.nama_penerbit, 
+            penerbit.no_telepon, 
+            penerbit.email, 
+            rak.kode_rak, 
+            rak.lokasi, 
+            buku.tahun_terbit, 
+            buku.stok_tersedia, 
+            buku.harga
+        ')
+        // Melakukan Join ke tabel terkait
+        ->join('pengarang', 'pengarang.id_pengarang = buku.id_pengarang', 'left')
+        ->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit', 'left')
+        ->join('rak', 'rak.id_rak = buku.id_rak', 'left');
+
+    return DataTable::of($builder)
+        ->toJson(true);
+}
 
     /**
      * Return the properties of a resource object.
