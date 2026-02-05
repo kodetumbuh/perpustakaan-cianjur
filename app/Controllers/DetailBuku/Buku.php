@@ -4,6 +4,7 @@ namespace App\Controllers\DetailBuku;
 
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
+use \Hermawan\DataTables\DataTable;
 
 class Buku extends ResourceController
 {
@@ -16,6 +17,9 @@ class Buku extends ResourceController
     {
         return view('detail_buku/buku');
     }
+
+
+    
 
     /**
      * Return the properties of a resource object.
